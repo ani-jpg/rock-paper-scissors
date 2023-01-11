@@ -4,7 +4,9 @@
 <head>
 
 <body>
-    <script>
+
+<script>
+    
     function getComputerChoice() {
         let x= Math.floor(Math.random()*3); //gives 0,1 or 2
     
@@ -22,6 +24,16 @@
         }
     }
     console.log(getComputerChoice());
+
+    let playerSelection=prompt("Choice?");
+
+    function capitalize () {
+                return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+            }
+    console.log(capitalize(playerSelection));
+
+
+
 
     </script>
 
