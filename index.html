@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<body>
+    <script>
+    function getComputerChoice() {
+        let x= Math.floor(Math.random()*3); //gives 0,1 or 2
+    
+        if (x==0) {
+            message="Rock";
+            return message;
+        }
+        else if (x==1) {
+            message="Paper";
+            return message;
+        }
+        else {
+            message="Scissors";
+            return message;
+        }
+    }
+    console.log(getComputerChoice());
+
+    </script>
+
+</body>
+
+</head>
+
+</html>
