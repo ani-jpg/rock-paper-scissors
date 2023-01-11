@@ -6,32 +6,53 @@
 <body>
 
 <script>
-    
+    //Computer choice
     function getComputerChoice() {
         let x= Math.floor(Math.random()*3); //gives 0,1 or 2
     
         if (x==0) {
-            message="Rock";
+            message="rock";
             return message;
         }
         else if (x==1) {
-            message="Paper";
+            message="paper";
             return message;
         }
         else {
-            message="Scissors";
+            message="scissors";
             return message;
         }
     }
-    console.log(getComputerChoice());
+    const computer=getComputerChoice();
+    console.log(computer);
 
+    //Player choice 
     let playerSelection=prompt("Choice?");
+    const player=playerSelection.toLowerCase(); //removed capitalize function to keep all lowercase results
+    console.log(player);
 
-    function capitalize () {
-                return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-            }
-    console.log(capitalize(playerSelection));
+    //Game
+    function playGame() {
+        if (player==computer) {
+            result="It's a tie! Try again."
+            return result;
+        }
 
+        else if (player=='rock'&&computer=='scissors' ||
+        player=='paper'&&computer=='rock' ||
+        player=='scissors'&&computer=='paper') {
+            result="You win! " + player + " beats " + computer
+            return result;
+        }
+        
+        else {
+            result="You lose! " + computer + " beats " + player
+            return result;
+        }
+    }
+    console.log(playGame());
+
+    //
 
 
 
