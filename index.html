@@ -27,8 +27,8 @@
     console.log(computer);
 
     //Player choice 
-    let playerSelection=prompt("Choice?");
-    const player=playerSelection.toLowerCase(); //removed capitalize function to keep all lowercase results
+    let playerSelection=prompt("Rock, paper or scissors?");
+    const player=playerSelection.toLowerCase(); 
     console.log(player);
 
     //Game
@@ -41,20 +41,35 @@
         else if (player=='rock'&&computer=='scissors' ||
         player=='paper'&&computer=='rock' ||
         player=='scissors'&&computer=='paper') {
+            x=1;
             result="You win! " + player + " beats " + computer
             return result;
         }
         
         else {
+            x=2;
             result="You lose! " + computer + " beats " + player
             return result;
         }
     }
-    console.log(playGame());
+    console.log(playGame(player,computer));
 
-    //
+    //Scoreboard
 
+    for (let i=0; i<5; i++) {
+    let score=0;
+        if (playGame(player,computer)=="You win! " + player + " beats " + computer)
+        {
+            score++;
+            console.log(score);
+        }
+        else {
+            score=score;
+            console.log(score);
+        }
+    }
 
+    
 
     </script>
 
