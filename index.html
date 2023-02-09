@@ -4,41 +4,48 @@
 <head>
 
 <body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
 <script>
-    //Computer choice
-    function getComputerChoice() {
+//Player choice
+const buttons= document.querySelectorAll('#rock, #paper, #scissors');
+let player;
+
+//For each round
+buttons.forEach((button) => {button.addEventListener ('click', () => {
+    player = button.id;
+    console.log("You chose " + player);
+    console.log(playGame());
+    });
+});
+
+    
+//Computer choice
+function getComputerChoice() {
         let x= Math.floor(Math.random()*3); //gives 0,1 or 2
     
-        if (x==0) {
-            message="rock";
-            return message;
+        if (x===0) {
+            return "rock";
         }
-        else if (x==1) {
-            message="paper";
-            return message;
+        else if (x===1) {
+            return "paper";
         }
         else {
-            message="scissors";
-            return message;
+            return "scissors";
         }
     }
+
+//Game function
+function playGame() {
     const computer=getComputerChoice();
-    console.log(computer);
-
-    //Player choice 
-    let playerSelection=prompt("Rock, paper or scissors?");
-    const player=playerSelection.toLowerCase(); 
-    console.log(player);
-
-    //Game
-    function playGame() {
-        if (player==computer) {
-            result="It's a tie! Try again."
-            return result;
+    console.log("The computer chose " + computer);
+        if (player===computer) {
+            return "It's a tie! Try again."
         }
 
-        else if (player=='rock'&&computer=='scissors' ||
+        else if (player==='rock'&& computer==='scissors' ||
         player=='paper'&&computer=='rock' ||
         player=='scissors'&&computer=='paper') {
             x=1;
@@ -52,25 +59,6 @@
             return result;
         }
     }
-    console.log(playGame(player,computer));
-
-    //Scoreboard
-
-    for (let i=0; i<5; i++) {
-    let score=0;
-        if (playGame(player,computer)=="You win! " + player + " beats " + computer)
-        {
-            score++;
-            console.log(score);
-        }
-        else {
-            score=score;
-            console.log(score);
-        }
-    }
-
-    
-
     </script>
 
 </body>
@@ -78,3 +66,7 @@
 </head>
 
 </html>
+
+
+    
+    
