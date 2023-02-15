@@ -64,6 +64,7 @@ function playGame() {
     score.textContent="Player: " + playerScore + "  " + "Computer: " + computerScore;
     round++;
     roundText.textContent="Round: " + round;
+    console.log(round);
     }
 
 //For each round & limit to 5 rounds 
@@ -71,10 +72,10 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
     player = button.id;
 
     if (round==5) {
-    result.textContent=" ";
-    roundText.textContent=" ";
-    roundLimit();
-    replay();
+        result.textContent=" ";
+        roundText.textContent=" ";
+        roundLimit();
+        replay();
     }
 
     else {
@@ -87,37 +88,44 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
 //Limit to 5 rounds
 function roundLimit() {
     if (computerScore > playerScore) {
-            gameResult.textContent= "You lose!"
+            gameResult.textContent= "You lose the game!"
         }
         else if (playerScore > computerScore) {
-            gameResult.textContent= "Congratulations, you win!"
+            gameResult.textContent= "Congratulations, you win the game!"
         }
         else if (playerScore==computerScore) {
-            gameResult.textContent= "It's a tie!"
+            gameResult.textContent= "It's a tie! You & the computer scored the same"
         }
 }
 
 //Refresh game
 let replayButton;
 
+const playAgain=document.createElement('button');
+playAgain.id="playAgain";
+playAgain.textContent="Click here to play again."
+
 function replay () {
     if (replayButton!=true) {
-    const playAgain=document.createElement('button');
-    playAgain.id="playAgain";
-    playAgain.textContent="Click here to play again."
     document.body.appendChild(playAgain);
-
     replayButton= true;
     }
-    
-    //this part doesnt work
-    playAgain.addEventListener('click', ()=> {
-    computerScore==0;
-    playerScore==0;
-    round==0;
-    })
 
+    playAgain.addEventListener('click', ()=> {
+        round=0;
+        playerScore=0;
+        computerScore=0;
+
+        result.textContent="Play again! Best of 5 wins"
+        roundText.textContent="Round: " + round
+        gameResult.textContent= " "
+
+        playAgain.remove();
+        replayButton=false;
+    });
 }
+
+
 
 </script>
 
