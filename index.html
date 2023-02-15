@@ -8,19 +8,23 @@
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
 
+    <p id="score">Player: 0 Computer: 0</p>
+    <p id="result">Can you beat the computer?</p>
+    <p id="roundText">Best of 5 rounds!</p>
+    <p id="gameResult"></p>
+
 <script>
+let playerScore=0;
+let computerScore=0;
+let round=0;
+
+const score=document.querySelector('#score');
+const result=document.querySelector('#result');
+const roundText=document.querySelector('#roundText');
+
 //Player choice
-const buttons= document.querySelectorAll('#rock, #paper, #scissors');
+const buttons= document.querySelectorAll('button');
 let player;
-
-//For each round
-buttons.forEach((button) => {button.addEventListener ('click', () => {
-    player = button.id;
-    console.log("You chose " + player);
-    console.log(playGame());
-    });
-});
-
     
 //Computer choice
 function getComputerChoice() {
@@ -39,27 +43,83 @@ function getComputerChoice() {
 
 //Game function
 function playGame() {
-    const computer=getComputerChoice();
+    const computer=getComputerChoice();//putting it here regenerates computer choice each time 
+    console.log("You chose " + player);
     console.log("The computer chose " + computer);
-        if (player===computer) {
-            return "It's a tie! Try again."
-        }
 
+        if (player===computer) {
+            result.textContent="It's a tie! Try again."
+        }
         else if (player==='rock'&& computer==='scissors' ||
         player=='paper'&&computer=='rock' ||
         player=='scissors'&&computer=='paper') {
-            x=1;
-            result="You win! " + player + " beats " + computer
-            return result;
+            playerScore++;
+            result.textContent= "You win! " + player + " beats " + computer
         }
         
         else {
-            x=2;
-            result="You lose! " + computer + " beats " + player
-            return result;
+            computerScore++;
+            result.textContent= "You lose! " + computer + " beats " + player
         }
+    score.textContent="Player: " + playerScore + "  " + "Computer: " + computerScore;
+    round++;
+    roundText.textContent="Round: " + round;
     }
-    </script>
+
+//For each round & limit to 5 rounds 
+buttons.forEach((button) => {button.addEventListener ('click', () => {
+    player = button.id;
+
+    if (round==5) {
+    result.textContent=" ";
+    roundText.textContent=" ";
+    roundLimit();
+    replay();
+    }
+
+    else {
+        playGame();
+    }
+    
+    });
+});
+
+//Limit to 5 rounds
+function roundLimit() {
+    if (computerScore > playerScore) {
+            gameResult.textContent= "You lose!"
+        }
+        else if (playerScore > computerScore) {
+            gameResult.textContent= "Congratulations, you win!"
+        }
+        else if (playerScore==computerScore) {
+            gameResult.textContent= "It's a tie!"
+        }
+}
+
+//Refresh game
+let replayButton;
+
+function replay () {
+    if (replayButton!=true) {
+    const playAgain=document.createElement('button');
+    playAgain.id="playAgain";
+    playAgain.textContent="Click here to play again."
+    document.body.appendChild(playAgain);
+
+    replayButton= true;
+    }
+    
+    //this part doesnt work
+    playAgain.addEventListener('click', ()=> {
+    computerScore==0;
+    playerScore==0;
+    round==0;
+    })
+
+}
+
+</script>
 
 </body>
 
@@ -67,6 +127,4 @@ function playGame() {
 
 </html>
 
-
-    
     
