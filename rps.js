@@ -52,20 +52,26 @@ function playGame() {
     }
 
 //For each round & limit to 5 rounds 
+let buttonColor;
+
 buttons.forEach((button) => {button.addEventListener ('click', () => {
     player = button.id;
-
+    
     if (round==5) {
         result.textContent=" ";
-        roundText.textContent=" ";
+        roundText.textContent="Round: " + round;
         roundLimit();
         replay();
     }
 
     else {
         playGame();
-    }
-    
+
+        button.style.backgroundColor='lightgray';
+        setTimeout(() => {
+            button.style.backgroundColor='';
+        },90)
+        }
     });
 });
 
@@ -89,9 +95,11 @@ const playAgain=document.createElement('button');
 playAgain.id="playAgain";
 playAgain.textContent="Click here to play again."
 
+const tryAgain=document.querySelector('.tryAgain');
+
 function replay () {
     if (replayButton!=true) {
-    document.body.appendChild(playAgain);
+    tryAgain.appendChild(playAgain);
     replayButton= true;
     }
 
