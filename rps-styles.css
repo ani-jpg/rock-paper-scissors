@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    color: darkred;
+    font-size: 90px;
+    font-weight: bolder;
+    font-family: cursive;
+    margin: 10px;
+}
+
+body {
+    font-size: 25px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+    
+.game {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 100px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:100px;
+}
+
+#rock, #paper, #scissors {
+    font-size: 39px;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px 50px;
+    text-align:center;
+    color:brown;
+    background-color: white;
+    border: 5.5px solid brown; 
+    border-radius: 12px;
+}
+
+#scissors {
+    padding: 10px 40px;
+}
+
+.tryAgain {
+    display:flex;
+    justify-content: center;
+}

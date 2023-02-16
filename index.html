@@ -3,16 +3,31 @@
 
 <head>
     <title>Rock, paper, or scissors?</title>
+    <link rel="stylesheet" href="rps-styles.css">
 
+    <h1>Rock, Paper or Scissors ?</h1>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
 
-    <p id="score">Player: 0 Computer: 0</p>
-    <p id="result">Can you beat the computer?</p>
-    <p id="roundText">Best of 5 rounds!</p>
-    <p id="gameResult"></p>
+    <div class="game">
+        <p id="roundText">Best of 5 rounds!</p>
+  
+
+        <div class="choices"> 
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+
+        <p id="score">Player: 0 Computer: 0</p>
+
+        <p id="result">Can you beat the computer?</p>
+
+        <p id="gameResult"></p>
+    </div>
+    
+    <div class="tryAgain"></div>
+
+    
 
 <script src="rps.js"></script>
 
