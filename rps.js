@@ -58,10 +58,14 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
     player = button.id;
     
     if (round==5) {
-        result.textContent=" ";
         roundText.textContent="Round: " + round;
         roundLimit();
         replay();
+
+        button.style.backgroundColor='rgba(172, 67, 67, 0.49)';
+        setTimeout(() => {
+            button.style.backgroundColor='';
+        },90)
     }
 
     else {
@@ -70,7 +74,7 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
         button.style.backgroundColor='lightgray';
         setTimeout(() => {
             button.style.backgroundColor='';
-        },90)
+        },50)
         }
     });
 });
@@ -78,24 +82,23 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
 //Result after 5 rounds
 function roundLimit() {
     if (computerScore > playerScore) {
-            gameResult.textContent= "You lose the game!"
+            result.textContent= "You lose the game!"
         }
         else if (playerScore > computerScore) {
-            gameResult.textContent= "Congratulations, you win the game!"
+            result.textContent= "Congratulations, you win the game!"
         }
         else if (playerScore==computerScore) {
-            gameResult.textContent= "It's a tie! You & the computer scored the same"
+            result.textContent= "It's a tie! You & the computer scored the same"
         }
 }
 
 //Refresh game
 let replayButton;
+const tryAgain=document.querySelector('.tryAgain');
 
 const playAgain=document.createElement('button');
 playAgain.id="playAgain";
 playAgain.textContent="Click here to play again."
-
-const tryAgain=document.querySelector('.tryAgain');
 
 function replay () {
     if (replayButton!=true) {
@@ -111,7 +114,6 @@ function replay () {
         score.textContent="Player: " + playerScore + " " + "Computer: " + computerScore
         result.textContent="Play again! Best of 5 wins"
         roundText.textContent="Round: " + round
-        gameResult.textContent= " "
 
         playAgain.remove();
         replayButton=false;
