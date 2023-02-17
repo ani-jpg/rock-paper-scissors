@@ -94,7 +94,7 @@ function roundLimit() {
 
 //Refresh game
 let replayButton;
-const tryAgain=document.querySelector('.tryAgain');
+const gameContainer=document.querySelector('.game-container');
 
 const playAgain=document.createElement('button');
 playAgain.id="playAgain";
@@ -102,7 +102,7 @@ playAgain.textContent="Click here to play again."
 
 function replay () {
     if (replayButton!=true) {
-    tryAgain.appendChild(playAgain);
+    gameContainer.appendChild(playAgain);
     replayButton= true;
     }
 

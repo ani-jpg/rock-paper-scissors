@@ -1,3 +1,4 @@
+/*Title, body*/
 h1 {
     text-align: center;
     color: darkred;
@@ -12,8 +13,8 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: whitesmoke;
 }
-    
-.game {
+
+.game-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -22,6 +23,7 @@ body {
     padding: 10px 100px;
 }
 
+/*Choices*/
 .choices {
     display: flex;
     flex-wrap: wrap;
@@ -43,9 +45,4 @@ body {
 
 #scissors {
     padding: 10px 40px;
-}
-
-.tryAgain {
-    display:flex;
-    justify-content: center;
 }
