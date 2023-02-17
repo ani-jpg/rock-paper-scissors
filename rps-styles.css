@@ -9,9 +9,10 @@ h1 {
 }
 
 body {
-    font-size: 25px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 26px;
     background-color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
 }
 
 .game-container {
@@ -21,6 +22,13 @@ body {
     align-items: center;
     justify-content: center;
     padding: 10px 100px;
+}
+
+/*Round counter*/
+#roundText {
+    font-weight: 550;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: brown;
 }
 
 /*Choices*/
@@ -37,7 +45,7 @@ body {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 10px 50px;
     text-align:center;
-    color:brown;
+    color:black;
     background-color: white;
     border: 5.5px solid brown; 
     border-radius: 12px;
@@ -46,3 +54,10 @@ body {
 #scissors {
     padding: 10px 40px;
 }
+
+/*Score counter, result display*/
+#result {
+    margin:0;
+    font-size: 28px;
+}
+

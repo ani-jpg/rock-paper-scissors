@@ -45,7 +45,7 @@ function playGame() {
             computerScore++;
             result.textContent= "You lose! " + computer + " beats " + player
         }
-    score.textContent="Player: " + playerScore + "  " + "Computer: " + computerScore;
+    score.textContent="Player: " + playerScore + " Computer: " + computerScore;
     round++;
     roundText.textContent="Round: " + round;
     console.log(round);
@@ -70,6 +70,7 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
 
     else {
         playGame();
+        result.style.color='';
 
         button.style.backgroundColor='lightgray';
         setTimeout(() => {
@@ -83,12 +84,15 @@ buttons.forEach((button) => {button.addEventListener ('click', () => {
 function roundLimit() {
     if (computerScore > playerScore) {
             result.textContent= "You lose the game!"
+            result.style.color='red';
         }
         else if (playerScore > computerScore) {
             result.textContent= "Congratulations, you win the game!"
+            result.style.color='green';
         }
         else if (playerScore==computerScore) {
             result.textContent= "It's a tie! You & the computer scored the same"
+            result.style.color='blue';
         }
 }
 
@@ -111,11 +115,13 @@ function replay () {
         playerScore=0;
         computerScore=0;
 
-        score.textContent="Player: " + playerScore + " " + "Computer: " + computerScore
+        score.textContent="Player: " + playerScore + " Computer: " + computerScore
         result.textContent="Play again! Best of 5 wins"
         roundText.textContent="Round: " + round
 
         playAgain.remove();
         replayButton=false;
+
+        result.style.color='';
     });
 }
