@@ -26,9 +26,10 @@ body {
 
 /*Round counter*/
 #roundText {
-    font-weight: 550;
+    font-weight: 500;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: brown;
+    margin-top: 12px;
 }
 
 /*Choices*/
@@ -57,7 +58,13 @@ body {
 
 /*Score counter, result display*/
 #result {
-    margin:0;
     font-size: 28px;
+    margin: 18px;
 }
 
+#score {
+    font-weight:450;
+    margin-bottom: 0px;
+}
+
+/*Play again*/

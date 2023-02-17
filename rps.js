@@ -38,12 +38,12 @@ function playGame() {
         player=='paper'&&computer=='rock' ||
         player=='scissors'&&computer=='paper') {
             playerScore++;
-            result.textContent= "You win! " + player + " beats " + computer
+            result.textContent= "You win, " + player + " beats " + computer + "!"
         }
         
         else {
             computerScore++;
-            result.textContent= "You lose! " + computer + " beats " + player
+            result.textContent= "You lose, " + computer + " beats " + player + "!"
         }
     score.textContent="Player: " + playerScore + " Computer: " + computerScore;
     round++;
